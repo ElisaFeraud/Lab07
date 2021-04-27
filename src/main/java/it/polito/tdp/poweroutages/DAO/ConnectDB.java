@@ -1,6 +1,7 @@
 package it.polito.tdp.poweroutages.DAO;
 
 import java.sql.Connection;
+
 import java.sql.SQLException;
 
 import com.zaxxer.hikari.HikariConfig;
@@ -16,7 +17,7 @@ import com.zaxxer.hikari.HikariDataSource;
  */
 public class ConnectDB {
 	
-	private static final String jdbcURL = "jdbc:mysql://localhost/poweroutages";
+	private static final String jdbcURL = "jdbc:mysql://localhost/poweroutages?user=root&password=paperdollari";
 	private static HikariDataSource ds;
 	
 	public static Connection getConnection() {
@@ -24,7 +25,7 @@ public class ConnectDB {
 			HikariConfig config = new HikariConfig();
 			config.setJdbcUrl(jdbcURL);
 			config.setUsername("root");
-			config.setPassword("root");
+			config.setPassword("paperdollari");
 			
 			config.addDataSourceProperty("cachePrepStmts", true);
 			config.addDataSourceProperty("prepStmtChacheSize", 250);

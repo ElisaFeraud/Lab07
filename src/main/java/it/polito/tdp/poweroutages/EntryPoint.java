@@ -1,6 +1,7 @@
 package it.polito.tdp.poweroutages;
 
 import javafx.application.Application;
+
 import static javafx.application.Application.launch;
 
 import it.polito.tdp.poweroutages.FXMLController;
@@ -16,17 +17,16 @@ public class EntryPoint extends Application {
     @Override
     public void start(Stage stage) throws Exception {
     	
-    	FXMLController controller;
-    	
-    	FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Scene.fxml"));
-        Parent root = loader.load();
+    	FXMLLoader loader = new FXMLLoader((getClass().getResource("/fxml/Scene.fxml")));
+       	Parent root = loader.load();
+           FXMLController controller = loader.getController();
+       	Model model = new Model();
+       	controller.setModel(model);
         Scene scene = new Scene(root);
-
         controller = loader.getController();
     	
         // TODO impostare il model nel controller   
-        Model model = new Model();
-        controller.setModel(model);
+               controller.setModel(model);
                 
         
         stage.setTitle("JavaFX and Maven");
